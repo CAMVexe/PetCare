@@ -27,8 +27,7 @@ namespace PetCare.Models
 
         [Required(ErrorMessage = "Debe ingresar la fecha de ingreso de la mascota")]
         [DataType(DataType.Date)]
-        public DateTime DateIn {  get; set; } = DateTime.Today;
-
+        public DateTime DateIn { get; set; } = DateTime.Today;
 
     }
 }
