@@ -1,5 +1,53 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model PetCare.Models.Mascota
+
 @{
+    ViewData["Title"] = "Registrar nueva mascota";
 }
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-action="Create" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    @*PetName*@
+    <div class="mb-3">
+    <label asp-for="PetName" class="form-label"></label>
+    <input asp-for="PetName" class="form-control">
+        <span class="text-danger" asp-validation-for="PetName"></span>
+    </div>
+    @*Especie*@
+    <div class="mb-3">
+        <label asp-for="Especie" class="form-label"></label>
+        <input asp-for="Especie" class="form-control">
+        <span class="text-danger" asp-validation-for="Especie"></span>
+    </div>
+    @*Raza*@
+    <div class="mb-3">
+        <label asp-for="Raza" class="form-label"></label>
+        <input asp-for="Raza" class="form-control">
+        <span class="text-danger" asp-validation-for="Raza"></span>
+    </div>
+    @*Edad*@
+    <div class="mb-3">
+        <label asp-for="Edad" class="form-label"></label>
+        <input asp-for="Edad" class="form-control">
+        <span class="text-danger" asp-validation-for="Edad"></span>
+    </div>
+    @*OwnerName*@
+    <div class="mb-3">
+        <label asp-for="OwnerName" class="form-label"></label>
+        <input asp-for="OwnerName" class="form-control">
+        <span class="text-danger" asp-validation-for="OwnerName"></span>
+    </div>
+    @*OwnerTel*@
+    <div class="mb-3">
+        <label asp-for="OwnerTel" class="form-label"></label>
+        <input asp-for="OwnerTel" class="form-control">
+        <span class="text-danger" asp-validation-for="OwnerTel"></span>
+    </div>
+    @*DateIn*@
+    <div class="mb-3">
+        <label asp-for="DateIn" class="form-label"></label>
+        <input asp-for="DateIn" class="form-control">
+        <span class="text-danger" asp-validation-for="DateIn"></span>
+    </div>
+</form>
