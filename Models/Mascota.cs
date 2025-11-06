@@ -5,7 +5,7 @@ namespace PetCare.Models
     public class Mascota
     {
         [Required(ErrorMessage = "Debe ingresar un nombre para poder referirse a la mascota")]
-        [StringLength(2, ErrorMessage = "El nombre debe tener al menos 2 caracteres")]
+        [MinLength(2, ErrorMessage = "El nombre debe tener al menos 2 caracteres")]
         public string PetName { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Debe ingresar una especie para la mascota")]
@@ -18,7 +18,7 @@ namespace PetCare.Models
         public int Edad { get; set; }
 
         [Required(ErrorMessage = "Debe ingresar el nombre del dueño")]
-        [StringLength(3, ErrorMessage = "El nombre debe tener al menos 3 caracteres")]
+        [MinLength(3, ErrorMessage = "El nombre debe tener al menos 3 caracteres")]
         public string OwnerName { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Se debe establecer un contacto (número telefónico")]
