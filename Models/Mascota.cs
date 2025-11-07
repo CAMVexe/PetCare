@@ -15,7 +15,7 @@ namespace PetCare.Models
 
         [Required(ErrorMessage = "Para poder agregar a la persona es necesario ingresar la edad")]
         [Range(1, 120, ErrorMessage = "La edad debe estar entre 0 y 120 años")]
-        public int Edad { get; set; }
+        public int Edad { get; set; } 
 
         [Required(ErrorMessage = "Debe ingresar el nombre del dueño")]
         [MinLength(3, ErrorMessage = "El nombre debe tener al menos 3 caracteres")]
