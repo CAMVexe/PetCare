@@ -1,53 +1,107 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿@{
+    var title = ViewData["Title"] ?? "Clínica PetCare";
+}
+
+<!DOCTYPE html>
+<html lang="es">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - PetCare</title>
-    <script type="importmap"></script>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/PetCare.styles.css" asp-append-version="true" />
-</head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">PetCare</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Privacy" asp-action="Privacy">Privacy</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Mascota" asp-action="Index">Mascota</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+    <title>@title - PetCare</title>
 
-    <footer class="border-top footer text-muted">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Estilo personalizado minimalista -->
+    <style>
+        body {
+            background-color: #f5f6fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        nav.navbar {
+            background-color: #ffffff;
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            color: #007bff !important;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+
+        main.container {
+            margin-top: 40px;
+        }
+
+        a.nav-link {
+            color: #333 !important;
+            font-weight: 500;
+        }
+
+            a.nav-link:hover {
+                color: #007bff !important;
+            }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar superior -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
-            &copy; 2025 - PetCare - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <a class="navbar-brand" href="/Home/Index">
+                <i class="bi bi-house-door-fill"></i> PetCare
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Home/Index">
+                            <i class="bi bi-house"></i> Inicio
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Mascota/Registrar">
+                            <i class="bi bi-plus-circle"></i> Registrar Mascota
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Mascota/Index">
+                            <i class="bi bi-list-ul"></i> Lista de Mascotas
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
+    </nav>
+
+    <!-- Contenido dinámico -->
+    <main class="container mt-5 pt-5">
+        @RenderBody()
+    </main>
+
+    <!-- Pie de página -->
+    <footer class="border-top mt-5">
+        <p>© @DateTime.Now.Year Clínica PetCare | Proyecto ASP.NET Core MVC</p>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Validaciones de ASP.NET Core -->
+    @RenderSection("Scripts", required: false)
 </body>
 </html>
