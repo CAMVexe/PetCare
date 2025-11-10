@@ -1,0 +1,75 @@
+@model PetCare.Models.Mascota
+
+@{
+    ViewData["Title"] = "Registrar Mascota";
+    Layout = "_Layout";
+}
+
+<div class="container mt-5">
+    <div class="card shadow-lg p-4 rounded-4">
+        <h2 class="text-center text-success mb-4">Registrar Nueva Mascota ??</h2>
+
+        <form asp-controller="Mascotas" asp-action="Create" method="post" class="row g-3">
+            <div class="col-md-6">
+                <label asp-for="PetName" class="form-label fw-bold"></label>
+                <input asp-for="PetName" class="form-control" placeholder="Ej: Rocky" />
+                <span asp-validation-for="PetName" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="Especie" class="form-label fw-bold"></label>
+                <select asp-for="Especie" class="form-select">
+                    <option value="">Seleccione</option>
+                    <option>Perro</option>
+                    <option>Gato</option>
+                    <option>Ave</option>
+                    <option>Otro</option>
+                </select>
+                <span asp-validation-for="Especie" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="Raza" class="form-label fw-bold"></label>
+                <input asp-for="Raza" class="form-control" placeholder="Ej: Labrador" />
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="Edad" class="form-label fw-bold"></label>
+                <input asp-for="Edad" class="form-control" placeholder="Ej: 5" />
+                <span asp-validation-for="Edad" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="OwnerName" class="form-label fw-bold"></label>
+                <input asp-for="OwnerName" class="form-control" placeholder="Ej: Carlos Méndez" />
+                <span asp-validation-for="OwnerName" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="OwnerTel" class="form-label fw-bold"></label>
+                <input asp-for="OwnerTel" class="form-control" placeholder="809-555-1234" />
+                <span asp-validation-for="OwnerTel" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="DateIn" class="form-label fw-bold"></label>
+                <input asp-for="DateIn" class="form-control" type="date" />
+                <span asp-validation-for="DateIn" class="text-danger"></span>
+            </div>
+
+            <div class="col-12 text-center mt-4">
+                <button type="submit" class="btn btn-primary px-4">
+                    <i class="bi bi-save"></i> Guardar
+                </button>
+
+                <a asp-controller="Mascotas" asp-action="Index" class="btn btn-secondary px-4 ms-2">
+                    <i class="bi bi-arrow-left-circle"></i> Volver
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
